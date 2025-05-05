@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "name": "Sweater",
+        "price": 39.99,
+        "size": "L"
+    },
+    {
+        "id": 1,
+        "name": "T-shirt",
+        "price": 19.99,
+        "size": "M"
+    },
+    {
+        "id": 2,
+        "name": "Jeans",
+        "price": 49.99,
+        "size": "L"
+    },
+    {
+        "id": 3,
+        "name": "Sneakers",
+        "price": 89.99,
+        "size": "S"
+    },
+    {
+        "id": 4,
+        "name": "Jacket",
+        "price": 129.99,
+        "size": "M"
+    },
+    {
+        "id": 5,
+        "name": "Hat",
+        "price": 15.99,
+        "size": "L"
+    },
+    {
+        "id": 6,
+        "name": "Socks",
+        "price": 5.99,
+        "size": "S"
+    },
+    {
+        "id": 7,
+        "name": "Belt",
+        "price": 25.99,
+        "size": "M"
+    }
+]
