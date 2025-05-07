@@ -195,6 +195,61 @@ function requestHandler(req, res) {
                 }
             });
         }
+        else if (req.method === 'DELETE' && req.url === '/delete'){//DELETE SPECIFIC GOODS MODULE STARTS HERE
+            /*
+            1.Get ID from client to delete
+            2. read Inventory file
+            3. find id within inventory file to delete
+            4. remove matched id
+            5. assign edited object to original inventory object
+            6. write edited inventory object to file
+             */
+            const body = [];
+            req.on('data', (chunk) => {body.push(chunk);});
+
+            req.on('end', () => {
+                try
+                {
+                    if (body.length === 0){
+                        throw new Error (`No data provided in the request body. Please make sure to enter data of JSON Format ' "id": 0 ' For delete of item fron DB `);
+                    }
+
+                    const itemForDelete = JSON.parse(body);
+                    const idForDelete = itemForDelete.id;
+
+                    fs.readFile(BASE_DIR, 'utf8', (err,data)=> {
+                        if (err) {
+                            res.writeHead(500);
+                            res.end(JSON.stringify({error: 'Failure to read DB Inventory'}));
+                            return;
+                        }
+
+                        const inventoryArray = JSON.parse(data);
+                        const searchIndex = inventoryArray.findIndex((index) => idForDelete === index.id);
+                        
+                        if (searchIndex === -1){
+                            res.writeHead(500);
+                            res.end(JSON.stringify({error : `User provided ID For Delete does not exist within the Inventory db`}));
+                            return;
+                        }
+
+                        inventoryArray.splice(searchIndex,1);
+
+                        fs.writeFile(BASE_DIR, JSON.stringify(inventoryArray) , (err) => {
+                            if(err){
+                                res.writeHead(500);
+                                res.end(JSON.stringify({error: 'Error occured while writing to'}))
+                            }
+                            res.end(JSON.stringify(inventoryArray))
+                        } )
+                    })
+                }
+                catch (error){
+                    res.writeHead(400);
+                    res.end(JSON.stringify({error : error.message}))
+                }
+            })
+        }
     })
 
 }
