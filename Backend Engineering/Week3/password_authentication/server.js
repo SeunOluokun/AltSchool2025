@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const {authenticate} =require ('./auth');
+const {authenticate} =require ('./authentication');
 
 const booksDbPath = path.join(__dirname, "db", 'books.json');
 let booksDB = [];
@@ -14,28 +14,10 @@ const requestHandler = async function (req, res) {
 
     if (req.url === '/books' && req.method === 'GET') {
         //authentication
-        authenticate(req, res)
-            .then(()=> {
-                getAllBooks(req, res);
-            })
-            .catch((err)=> {
-                res.writeHead(400)
-                res.end(JSON.stringify({
-                    message: err
-                }))
-            })
+        getAllBooks(req, res);
+        
     } else if (req.url === '/books' && req.method === 'POST') {
         //authentication
-        authenticate(req, res)
-            .then(()=> {
-                addBook(req, res);
-            }).catch((err)=> {
-                res.writeHead(400)
-                res.end(JSON.stringify({
-                    message: err
-                }))
-            })
-    
         addBook(req, res);
     } else if (req.url === '/books' && req.method === 'PUT') {
         updateBook(req, res);

@@ -1,39 +1,23 @@
+function add( a, b)
+{return a + b}
 
-function add(num1, num2){
-    return num1 + num2
-}
+function sub( a, b)
+{return a - b}
 
-function sub(num1, num2){
-    return num1 - num2
-}
+function mul( a, b)
+{return a * b}
 
-function mul(num1, num2){
-    return num1 * num2
-}
+function pow( a, b)
+{return a ** b}
 
-function pow(num1, num2){
-    return num1 ** num2
-}
+function div( a, b)
+{return a / b}
 
-function div(num1, num2){
-    return num1 / num2
-}
+function mean(arrayNums)
+{let sum = arrayNums.reduce((c, a)=> c + a)
+let length = arrayNums.length;
 
-function mean(arrayNums){
-    let sum = 0
+return sum/length;
+ }
 
-    arrayNums.forEach((num)=> {
-        sum = sum + num
-    })
-
-    return sum / arrayNums.length
-}
-
-module.exports = {
-    add,
-    sub,
-    mul,
-    pow,
-    div,
-    mean
-}
+module.exports = {add,sub,mul,pow,div,mean}

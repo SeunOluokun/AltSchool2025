@@ -2,25 +2,22 @@ require("dotenv").config()
 
 const TOKEN = process.env.API_KEY
 
-function authenticateUser(req, res) {
+function authenticateUser(req, res){
+
     return new Promise((resolve, reject) => {
-        let token = req.headers.authorization
+        let token = req.headers.authorization;
+        token = token.split(' ')[1];
         
-        if (!token) {
-            reject("No token provided")
+        if (!token){
+            reject('token cannot be empty');
         }
 
-        token = token.split(" ")[1]
-
-        if (token !== TOKEN) {
-            reject("Invalid token!")
+        if (token !== TOKEN){
+            reject("Invalid token provided! ");
         }
-
-        resolve()
+        resolve();
     })
 
 }
 
-module.exports = {
-    authenticateUser
-}
+module.exports={authenticateUser};

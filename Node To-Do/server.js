@@ -14,6 +14,8 @@ console.log(`indexPath: ${indexPath}`);
 function requestHandler(req, res) {
     res.setHeader("Content-Type", "text/html");
     fs.readFile(indexPath, (err, data) => {
+    
+    try{
         if (err) {
         res.writeHead(500);
         } else {
@@ -30,6 +32,13 @@ function requestHandler(req, res) {
                 res.end("404 Not Found");
             }
         }
+    }
+    catch (error)
+    {
+        res.writeHead(400)
+        res.end(JSON.stringify({error : error.message}))
+    }
+
     });
 }
 //create a server that listens on port 2000

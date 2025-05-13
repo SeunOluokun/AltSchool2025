@@ -1,9 +1,9 @@
-This application performs some simple math functions.
+This application performs simple math functions
 
-## API 
+## API
 * `add`
 * `sub`
 * `mul`
-* `pow`
+* `power`
 * `div`
 * `mean`
