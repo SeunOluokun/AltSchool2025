@@ -103,7 +103,7 @@ const addItem = function (req, res){
                         const allItems = JSON.parse(data);
                         const itemCount = allItems.length;
                         const lastIndex = itemCount - 1;
-                        const appendId = { "id": itemCount + 1 };
+                        const appendId = { "id": lastIndex + 1 };
 
 
                         const addNewItem = { ...appendId, ...newItem };
