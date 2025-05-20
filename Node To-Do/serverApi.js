@@ -1,4 +1,4 @@
-/* clothing for inventory , /cloth for get specific ID */
+/* clothing for inventory , /cloth for get specific ID */ 
 
 const fs = require('fs');
 const path = require('path');

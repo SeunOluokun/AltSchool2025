@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 
-const BASE_DIR = path.join(__dirname, 'resource', 'inventory.json');
+const BASE_DIR = path.join(__dirname, 'resource', 'inventory.json'); 
 
 const getAll = function (req, res) {
  fs.readFile(BASE_DIR, "utf8", (err, data) => {
