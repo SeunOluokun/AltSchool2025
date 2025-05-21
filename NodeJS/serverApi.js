@@ -1,5 +1,3 @@
-/* clothing for inventory , /cloth for get specific ID */ 
-
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
@@ -20,25 +18,25 @@ function requestHandler(req, res) {
             return;
         }
 
-        if (req.method === 'GET' && req.url === '/clothing') {
+        if (req.method === 'GET' && req.url === '/items') {
 
             serverFunctions.getAll(req,res);
         }
-        else if (req.method === 'PUT' && req.url === '/clothing') {
+        else if (req.method === 'PUT' && req.url === '/items') {
           
             serverFunctions.updateItem(req,res);  
         }
         
-        else if (req.method === 'GET' && req.url === '/cloth') {
+        else if (req.method === 'GET' && req.url === '/items') {
             
             serverFunctions.getItem(req,res);  
         }
-        else if (req.method === 'POST' && req.url === '/clothing') {
+        else if (req.method === 'POST' && req.url === '/items') {
             
             serverFunctions.addItem(req,res);  
 
         }
-        else if (req.method === 'DELETE' && req.url === '/clothing'){
+        else if (req.method === 'DELETE' && req.url === '/items'){
 
             serverFunctions.deleteItem(req,res);  
         }

@@ -1,0 +1,13 @@
+{
+  "name": "clothing-inventory",
+  "version": "1.0.0",
+  "main": "serverApi.js",
+  "scripts": {
+    "start:web": "node ./server.js",
+    "start:api": "node ./serverApi.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Node CRUD assignment without Express"
+}
